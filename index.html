@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CineStar - Tiket Bioskop Online</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
- 
+
 </head>
+
 <body>
     <header id="header">
         <a href="#" class="logo">CineStar</a>
@@ -24,7 +26,8 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Experience Movies Like Never Before</h1>
-            <p>Book your tickets online and enjoy the latest blockbusters in our state-of-the-art theaters with Dolby Atmos sound and 4K projection.</p>
+            <p>Book your tickets online and enjoy the latest blockbusters in our state-of-the-art theaters with Dolby
+                Atmos sound and 4K projection.</p>
             <button class="btn">Book Now</button>
         </div>
     </section>
@@ -32,28 +35,27 @@
     <section id="now-showing" class="now-showing">
         <h2 class="section-title">Now Showing</h2>
         <div class="movies-container" id="nowShowingMovies">
-            <!-- Movies will be loaded here via JavaScript -->
         </div>
     </section>
 
     <section id="coming-soon" class="coming-soon">
         <h2 class="section-title">Coming Soon</h2>
         <div class="movies-container" id="comingSoonMovies">
-            <!-- Movies will be loaded here via JavaScript -->
         </div>
     </section>
 
     <div id="bookingModal" class="booking-modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
-            
+
             <div class="modal-header">
                 <img id="modalMoviePoster" class="modal-poster" src="" alt="Movie Poster">
                 <div class="modal-movie-info">
                     <h2 id="modalMovieTitle">Movie Title</h2>
                     <p id="modalMovieGenre">Action, Adventure</p>
                     <p id="modalMovieDuration">2h 15m</p>
-                    <p id="modalMovieSynopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget ultricies nisl nisl eget nisl.</p>
+                    <p id="modalMovieSynopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor,
+                        nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget ultricies nisl nisl eget nisl.</p>
                 </div>
             </div>
 
@@ -72,7 +74,6 @@
                 </div>
             </div>
 
-            <!-- Step 1: Date & Time -->
             <div id="step1" class="booking-form active">
                 <div class="form-row">
                     <div class="form-group">
@@ -104,7 +105,6 @@
                 </div>
             </div>
 
-            <!-- Step 2: Seats Selection -->
             <div id="step2" class="booking-form">
                 <div class="form-group">
                     <label for="ticket-type">Ticket Type</label>
@@ -114,10 +114,10 @@
                         <option value="vip">VIP - Rp 80,000</option>
                     </select>
                 </div>
-                
+
                 <div class="cinema-seats">
                     <div class="screen">SCREEN</div>
-                    
+
                     <div class="seats-legend">
                         <div class="legend-item">
                             <div class="legend-color available"></div>
@@ -132,12 +132,11 @@
                             <span>Occupied</span>
                         </div>
                     </div>
-                    
+
                     <div class="seats-grid" id="seatsGrid">
-                        <!-- Seats will be generated via JavaScript -->
                     </div>
                 </div>
-                
+
                 <div class="booking-summary">
                     <div class="summary-item">
                         <span>Movie:</span>
@@ -164,14 +163,14 @@
                         <span id="summary-total">Rp 0</span>
                     </div>
                 </div>
-                
+
                 <div class="navigation-buttons">
                     <button class="btn prev-step" data-prev="1">Back</button>
                     <button class="btn next-step" data-next="3">Next</button>
                 </div>
             </div>
 
-            <!-- Step 3: Payment -->
+
             <div id="step3" class="booking-form">
                 <div class="form-group">
                     <label for="name">Full Name</label>
@@ -196,7 +195,7 @@
                         <option value="dana">DANA</option>
                     </select>
                 </div>
-                
+
                 <div class="booking-summary">
                     <div class="summary-item">
                         <span>Movie:</span>
@@ -223,7 +222,7 @@
                         <span id="summary-total-final">Rp 80,000</span>
                     </div>
                 </div>
-                
+
                 <div class="navigation-buttons">
                     <button class="btn prev-step" data-prev="2">Back</button>
                     <button class="btn" id="confirm-payment">Confirm Payment</button>
@@ -250,6 +249,7 @@
         <p class="copyright">© 2023 CineStar. All Rights Reserved.</p>
     </footer>
 
-     <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
