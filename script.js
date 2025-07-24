@@ -3,10 +3,10 @@
             nowShowing: [
                 {
                     id: 1,
-                    title: "Avengers: Endgame",
-                    genre: "Action, Adventure, Sci-Fi",
-                    duration: "3h 1m",
-                    synopsis: "After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe.",
+                    title: "Thaghut",
+                    genre: "Horor, Thriller, Drama",
+                    duration: "2h 1m",
+                    synopsis: "Seorang santriwati bernama Ainun (Yasmin Napper), selama ini mengagumi sosok Abah Mulya (Whani Darmawan) sebagai orang sakti yang disegani, suka menolong orang yang kesusahan, dan menyembuhkan berbagai penyakit.",
                     poster: "film-thaghut.jpeg",
                     rating: "PG-13"
                 },
