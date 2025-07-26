@@ -65,14 +65,33 @@
 
     .hero {
         height: 70vh;
-        background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+        background:
+            linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            /* Overlay transparan */
+            url('img/background.png') no-repeat center center/cover;
         display: flex;
         align-items: center;
         padding: 0 50px;
         margin-top: 80px;
+        position: relative;
+        filter: brightness(0.7);
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        /* Ubah angka terakhir untuk mengatur redupnya */
     }
 
     .hero-content {
+        position: relative;
+        /* Pastikan konten di atas overlay */
+        z-index: 1;
         max-width: 600px;
     }
 
@@ -99,6 +118,16 @@
 
     .btn:hover {
         background-color: var(--secondary);
+    }
+
+    .btn:active {
+        background-color: var(--dark);
+        /* Warna saat tombol ditekan */
+    }
+
+    .time-slot.active {
+        background-color: var(--dark);
+        color: white;
     }
 
     .now-showing,

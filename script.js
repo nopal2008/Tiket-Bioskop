@@ -2,7 +2,7 @@ const movies = {
     nowShowing: [
         {
             id: 1,
-            title: "Avengers: Endgame",
+            title: "Taghut: Bayang di Balik Cahaya",
             genre: "Action, Adventure, Sci-Fi",
             duration: "3h 1m",
             synopsis: "After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe.",
@@ -11,10 +11,10 @@ const movies = {
         },
         {
             id: 2,
-            title: "The Batman",
-            genre: "Action, Crime, Drama",
+            title: "Sekawan Limo",
+            genre: "Horor Supranatural,  Coming-of-Age, Drama",
             duration: "2h 56m",
-            synopsis: "When a sadistic serial killer begins murdering key political figures in Gotham, Batman is forced to investigate the city's hidden corruption and question his family's involvement.",
+            synopsis: "menceritakan kisah lima sahabat yang mendaki Gunung Madyopuro, sebuah gunung yang terkenal angker. Mereka mengabaikan mitos dan aturan yang seharusnya dipatuhi, yang menyebabkan mereka mengalami kejadian-kejadian mistis dan diteror oleh makhluk halus. Film ini menyoroti persahabatan mereka, konflik internal, dan misteri di balik salah satu dari mereka yang ternyata bukan manusia",
             poster: "img/q1gd0a4nwhm68va.jpeg",
             rating: "PG-13"
         },
@@ -35,6 +35,15 @@ const movies = {
             synopsis: "James Bond has left active service. His peace is short-lived when Felix Leiter, an old friend from the CIA, turns up asking for help, leading Bond onto the trail of a mysterious villain armed with dangerous new technology.",
             poster: "img/rekomendasi-film-komedi-indonesia-1.jpg",
             rating: "PG-13"
+        },
+        {
+            id: 5,
+            title: "Kemah Terlarang",
+            genre: "Horror, mystery, survival",
+            duration: "2h 43m",
+            synopsis: "Sekelompok mahasiswa berkemah di hutan angker untuk merayakan kelulusan. Saat malam tiba, mereka diteror oleh kekuatan gaib dan mulai menghilang satu per satu. Mereka harus bertahan dan ungkap misteri kutukan hutan itu sebelum semuanya terlambat.",
+            poster: "img/kemah terlarang.jpg",
+            rating: "PG-13"
         }
     ],
     comingSoon: [
@@ -44,14 +53,14 @@ const movies = {
             genre: "Action, Adventure, Drama",
             duration: "2h 41m",
             synopsis: "The people of Wakanda fight to protect their home from intervening world powers as they mourn the death of King T'Challa.",
-            poster: "img/a74168d9c20145a0affd47e6a3df6d07.jpg",
+            poster: "img/Black_Panther_Wakanda_Forever_poster.jpg",
             rating: "PG-13",
             releaseDate: "November 11, 2023"
         },
         {
             id: 6,
-            title: "Avatar: The Way of Water",
-            genre: "Action, Adventure, Fantasy",
+            title: "Kampung Jabang Mayit",
+            genre: "Folklor, Horor Supranatural,  mystery",
             duration: "3h 12m",
             synopsis: "Jake Sully lives with his newfound family formed on the extrasolar moon Pandora. Once a familiar threat returns to finish what was previously started, Jake must work with Neytiri and the army of the Na'vi race to protect their home.",
             poster: "img/f3d2b62e4cfd41a0b4758d2aee2829a2.jpg",
