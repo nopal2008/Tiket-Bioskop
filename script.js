@@ -44,6 +44,15 @@ const movies = {
             synopsis: "Sekelompok mahasiswa berkemah di hutan angker untuk merayakan kelulusan. Saat malam tiba, mereka diteror oleh kekuatan gaib dan mulai menghilang satu per satu. Mereka harus bertahan dan ungkap misteri kutukan hutan itu sebelum semuanya terlambat.",
             poster: "img/kemah terlarang.jpg",
             rating: "PG-13"
+        },
+        {
+            id: 6,
+            title: "No Time to Die",
+            genre: "Action, Adventure, Thriller",
+            duration: "2h 43m",
+            synopsis: "James Bond has left active service. His peace is short-lived when Felix Leiter, an old friend from the CIA, turns up asking for help, leading Bond onto the trail of a mysterious villain armed with dangerous new technology.",
+            poster: "img/rekomendasi-film-komedi-indonesia-1.jpg",
+            rating: "PG-13"
         }
     ],
     comingSoon: [
@@ -410,4 +419,125 @@ window.addEventListener('click', function (event) {
     if (event.target === modal) {
         closeModal();
     }
+});
+// Auth Modals Functionality
+// Auth State Management
+let currentUser = null;
+
+// DOM Elements
+const authNavItem = document.getElementById('auth-nav-item');
+const welcomeModal = document.getElementById('welcomeModal');
+
+// Initialize Auth System
+function initAuth() {
+    // Check if user is logged in
+    const userData = localStorage.getItem('cineUser');
+    if (userData) {
+        currentUser = JSON.parse(userData);
+    } else {
+        // Show welcome modal for new visitors
+        setTimeout(() => {
+            welcomeModal.style.display = 'flex';
+        }, 1000);
+    }
+    updateAuthUI();
+}
+
+// Update UI based on auth state
+function updateAuthUI() {
+    if (currentUser) {
+        // User is logged in - show profile dropdown
+        const firstLetter = currentUser.name.charAt(0).toUpperCase();
+        authNavItem.innerHTML = `
+            <div class="user-dropdown">
+                <div class="user-avatar">${firstLetter}</div>
+                <div class="dropdown-menu">
+                    <a href="#">Profil Saya</a>
+                    <a href="#">Riwayat Pesanan</a>
+                    <button id="logout-btn">Keluar</button>
+                </div>
+            </div>
+        `;
+        
+        document.getElementById('logout-btn').addEventListener('click', logout);
+    } else {
+        // User is not logged in - show login button
+        authNavItem.innerHTML = '<a href="#" id="login-btn">Masuk</a>';
+        document.getElementById('login-btn').addEventListener('click', () => {
+            welcomeModal.style.display = 'flex';
+        });
+    }
+}
+
+// Login function
+function login(email, password) {
+    // In real app, this would be an API call
+    currentUser = {
+        name: "Nama Pengguna",
+        email: email,
+        phone: "08123456789"
+    };
+    
+    localStorage.setItem('cineUser', JSON.stringify(currentUser));
+    welcomeModal.style.display = 'none';
+    updateAuthUI();
+    
+    // Welcome message
+    const welcomeMsg = document.createElement('div');
+    welcomeMsg.className = 'welcome-message';
+    welcomeMsg.innerHTML = `
+        <p>Selamat datang, <strong>${currentUser.name}</strong>!</p>
+    `;
+    document.body.appendChild(welcomeMsg);
+    
+    setTimeout(() => {
+        welcomeMsg.remove();
+    }, 3000);
+}
+
+// Logout function
+function logout() {
+    currentUser = null;
+    localStorage.removeItem('cineUser');
+    updateAuthUI();
+    
+    // Show logout message
+    const logoutMsg = document.createElement('div');
+    logoutMsg.className = 'logout-message';
+    logoutMsg.textContent = 'Anda telah keluar';
+    document.body.appendChild(logoutMsg);
+    
+    setTimeout(() => {
+        logoutMsg.remove();
+    }, 2000);
+}
+
+// Event Listeners
+document.addEventListener('DOMContentLoaded', function() {
+    initAuth();
+    
+    // Login form submission
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+        
+        if (email && password) {
+            login(email, password);
+            this.reset();
+        }
+    });
+    
+    // Show signup (optional)
+    document.getElementById('showSignup').addEventListener('click', function(e) {
+        e.preventDefault();
+        alert('Fitur pendaftaran akan datang!');
+    });
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', function(e) {
+        if (e.target === welcomeModal) {
+            welcomeModal.style.display = 'none';
+        }
+    });
 });

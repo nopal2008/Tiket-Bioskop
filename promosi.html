@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promo Menarik - CineStar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #e50914;
+            --secondary: #b81d24;
+            --dark: #141414;
+            --light: #f5f5f5;
+            --gray: #777;
+            --dark-gray: #222;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+    header {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+        padding: 20px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 100;
+        transition: all 0.3s;
+    }
+
+    header.scrolled {
+        background-color: var(--dark);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .logo img {
+    width: 120px;
+    height: auto;
+    max-height: 50px;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+    }
+
+    nav ul li {
+        margin-left: 20px;
+    }
+
+    nav ul li a {
+        color: var(--light);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+        color: var(--primary);
+    }
+
+        /* Promo Section */
+        .promo-hero {
+        height: 70vh;
+        background:
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('img/background.png') no-repeat center center/cover;
+        display: flex;
+        align-items: center;
+        padding: 0 50px;
+        margin-top: 80px;
+        position: relative;
+        filter: brightness(0.7);
+    }
+
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #ddd;
+            margin-bottom: 30px;
+        }
+
+        .btn-hero {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .btn-hero:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Promo Grid */
+        .promo-section {
+            padding: 80px 5%;
+            background: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .section-subtitle {
+            color: #aaa;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .promo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .promo-card {
+            background: var(--dark-gray);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .promo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+
+        .promo-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            z-index: 2;
+        }
+
+        .promo-image {
+            height: 220px;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .promo-card:hover .promo-image {
+            transform: scale(1.05);
+        }
+
+        .promo-content {
+            padding: 25px;
+        }
+
+        .promo-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .promo-desc {
+            color: #bbb;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .promo-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            border-top: 1px solid #333;
+            padding-top: 15px;
+        }
+
+        .promo-date {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .promo-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .promo-btn:hover {
+            background: var(--secondary);
+        }
+
+        /* Promo Categories */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 10px 25px;
+            background: #333;
+            border: none;
+            border-radius: 30px;
+            color: #ddd;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .category-btn.active, .category-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* View All Button */
+        .view-all {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .view-all-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 30px;
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .view-all-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background: #111;
+            padding: 70px 5% 30px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            text-align: left;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+            padding: 0 15px;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .footer-col p {
+            color: var(--gray);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: block;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #222;
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            color: var(--gray);
+            font-size: 0.9rem;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .promo-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 5%;
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                gap: 15px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .footer-col {
+                min-width: 100%;
+                text-align: center;
+            }
+            
+            .footer-col h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .promo-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .category-tabs {
+                gap: 10px;
+            }
+            
+            .category-btn {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+     <header id="header">
+        <a href="#" class="logo"><img src="img/logo.png" alt="" srcset=""></a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Now Showing</a></li>
+                <li><a href="#coming-soon">Coming Soon</a></li>
+                <li><a href="#cinemas">Cinemas</a></li>
+                <li><a href="promosi.html">Promotions</a></li>
+                <li id="auth-nav-item" class="nav-link">
+
+            </ul>
+        </nav>
+    </header>
+    <section class="promo-hero">
+        <div class="hero-content">
+            <h1>Promo Spesial Bulan Ini</h1>
+            <p>Dapatkan penawaran terbaik untuk pengalaman menonton tak terlupakan</p>
+            <a href="#promo-list" class="btn-hero">Lihat Promo</a>
+        </div>
+    </section>
+
+    <section class="promo-section" id="promo-list">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Promo Menarik</h2>
+                <p class="section-subtitle">Nikmati berbagai penawaran menarik untuk pengalaman bioskop yang lebih hemat</p>
+            </div>
+
+            <div class="category-tabs">
+                <button class="category-btn active" data-category="all">Semua</button>
+                <button class="category-btn" data-category="discount">Diskon</button>
+                <button class="category-btn" data-category="package">Paket</button>
+                <button class="category-btn" data-category="voucher">Voucher</button>
+                <button class="category-btn" data-category="special">Spesial</button>
+            </div>
+
+            <div class="promo-grid">
+                <!-- Promo 1 -->
+                <div class="promo-card" data-category="discount">
+                    <span class="promo-badge">40% OFF</span>
+                    <img src="img/pr1.jpg" alt="Promo Senin" class="promo-image">
+                    <div class="promo-content">
+                        <h3 class="promo-title">Hari Senin Bahagia</h3>
+                        <p class="promo-desc">Diskon 40% untuk semua tiket setiap hari Senin. Minimal pembelian 2 tiket. Berlaku untuk semua studio.</p>
+                        <div class="promo-meta">
+                            <span class="promo-date">Berlaku hingga 31 Des 2023</span>
+                            <button class="promo-btn">Detail</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Promo 2 -->
+                <div class="promo-card" data-category="package">
+                    <span class="promo-badge">PAKET</span>
+                    <img src="img/pr2.jpg" alt="Paket Keluarga" class="promo-image">
+                    <div class="promo-content">
+                        <h3 class="promo-title">Weekend Seru</h3>
+                        <p class="promo-desc">4 tiket + 2 popcorn besar + 2 minuman hanya Rp 200.000. Hemat hingga Rp 75.000!</p>
+                        <div class="promo-meta">
+                            <span class="promo-date">Setiap Sabtu-Minggu</span>
+                            <button class="promo-btn">Pesan</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Promo 3 -->
+                <div class="promo-card" data-category="discount">
+                    <span class="promo-badge">BUY 1 GET 1</span>
+                    <img src="img/pr3.jpg" alt="Promo Pasangan" class="promo-image">
+                    <div class="promo-content">
+                        <h3 class="promo-title">Tanggal Tua Bahagia</h3>
+                        <p class="promo-desc">Beli 1 tiket dapat 1 gratis setiap tanggal 25-30. Berlaku untuk semua film kecuali premiere.</p>
+                        <div class="promo-meta">
+                            <span class="promo-date">Setiap bulan</span>
+                            <button class="promo-btn">Detail</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Promo 4 -->
+                <div class="promo-card" data-category="voucher">
+                    <span class="promo-badge">VOUCHER</span>
+                    <img src="https://via.placeholder.com/600x400?text=Voucher+Member" alt="Voucher Member" class="promo-image">
+                    <div class="promo-content">
+                        <h3 class="promo-title">Member Exclusive</h3>
+                        <p class="promo-desc">Diskon tambahan 15% untuk member setia dengan minimal pembelian Rp 150.000.</p>
+                        <div class="promo-meta">
+                            <span class="promo-date">Berlaku selamanya</span>
+                            <button class="promo-btn">Gabung</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Promo 5 -->
+                <div class="promo-card" data-category="special">
+                    <span class="promo-badge">SPESIAL</span>
+                    <img src="https://via.placeholder.com/600x400?text=Premiere+Night" alt="Premiere Night" class="promo-image">
+                    <div class="promo-content">
+                        <h3 class="promo-title">Premiere Night</h3>
+                        <p class="promo-desc">Akses eksklusif tayang perdana dengan harga spesial plus merchandise limited edition.</p>
+                        <div class="promo-meta">
+                            <span class="promo-date">Tergantung jadwal film</span>
+                            <button class="promo-btn">Info</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Promo 6 -->
+                <div class="promo-card" data-category="package">
+                    <span class="promo-badge">PAKET</span>
+                    <img src="https://via.placeholder.com/600x400?text=Date+Night" alt="Date Night" class="promo-image">
+                    <div class="promo-content">
+                        <h3 class="promo-title">Date Night</h3>
+                        <p class="promo-desc">2 tiket VIP + 1 popcorn besar + 2 minuman + dessert hanya Rp 150.000. Perfect for couples!</p>
+                        <div class="promo-meta">
+                            <span class="promo-date">Setiap hari</span>
+                            <button class="promo-btn">Pesan</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Promo 7 -->
+                <div class="promo-card" data-category="discount">
+                    <span class="promo-badge">25% OFF</span>
+                    <img src="https://via.placeholder.com/600x400?text=Student+Discount" alt="Student Discount" class="promo-image">
+                    <div class="promo-content">
+                        <h3 class="promo-title">Diskon Pelajar</h3>
+                        <p class="promo-desc">Potongan 25% untuk pelajar/mahasiswa dengan menunjukkan kartu pelajar yang berlaku.</p>
+                        <div class="promo-meta">
+                            <span class="promo-date">Senin-Jumat</span>
+                            <button class="promo-btn">Syarat</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Promo 8 -->
+                <div class="promo-card" data-category="special">
+                    <span class="promo-badge">SPESIAL</span>
+                    <img src="https://via.placeholder.com/600x400?text=Birthday+Promo" alt="Birthday Promo" class="promo-image">
+                    <div class="promo-content">
+                        <h3 class="promo-title">Ultah Gratis</h3>
+                        <p class="promo-desc">Dapatkan 1 tiket gratis di hari ulang tahun Anda! Berlaku untuk member saja.</p>
+                        <div class="promo-meta">
+                            <span class="promo-date">Berlaku 7 hari sekitar ultah</span>
+                            <button class="promo-btn">Klaim</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="view-all">
+                <a href="#" class="view-all-btn">Lihat Semua Promo <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>Tentang CineStar</h3>
+                <p>Bioskop premium dengan pengalaman menonton terbaik. Menyajikan film-film berkualitas dengan teknologi terkini.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Link Cepat</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Tayang Sekarang</a></li>
+                    <li><a href="#">Segera Tayang</a></li>
+                    <li><a href="#">Bioskop</a></li>
+                    <li><a href="#">Promo</a></li>
+                    <li><a href="#">Cara Pesan</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Bantuan</h3>
+                <ul class="footer-links">
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Hubungi Kami</a></li>
+                    <li><a href="#">Syarat & Ketentuan</a></li>
+                    <li><a href="#">Kebijakan Privasi</a></li>
+                    <li><a href="#">Pembatalan Tiket</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Newsletter</h3>
+                <p>Daftar untuk mendapatkan info promo terbaru langsung ke email Anda.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Alamat Email" required>
+                    <button type="submit">Daftar</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2023 CineStar. Semua Hak Dilindungi. | Developed with <i class="fas fa-heart" style="color: var(--primary);"></i> by Tim CineStar</p>
+        </div>
+    </footer>
+
+    <script>
+        // Header Scroll Effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Category Filter
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const promoCards = document.querySelectorAll('.promo-card');
+
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const category = this.dataset.category;
+                
+                // Filter promo cards
+                promoCards.forEach(card => {
+                    if (category === 'all' || card.dataset.category === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Promo Card Hover Effects
+        promoCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.querySelector('.promo-btn').style.transform = 'scale(1.05)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.querySelector('.promo-btn').style.transform = 'scale(1)';
+            });
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

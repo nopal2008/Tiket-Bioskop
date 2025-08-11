@@ -17,7 +17,104 @@
         background-color: var(--dark);
         color: var(--light);
     }
+    .welcome-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.9);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+        animation: fadeIn 0.5s ease-out;
+    }
 
+    .welcome-content {
+        background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+        width: 90%;
+        max-width: 450px;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        border: 1px solid #444;
+    }
+
+    .welcome-header {
+        padding: 30px;
+        text-align: center;
+        background: var(--primary);
+        color: white;
+    }
+
+    .welcome-header h2 {
+        margin-bottom: 10px;
+        font-size: 1.8rem;
+    }
+
+    .welcome-header p {
+        opacity: 0.9;
+    }
+
+    .auth-form {
+        padding: 30px;
+    }
+    .user-dropdown {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+    }
+
+    .user-avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: var(--primary);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: #2a2a2a;
+        border-radius: 8px;
+        padding: 10px 0;
+        min-width: 150px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        display: none;
+        z-index: 100;
+        border: 1px solid #444;
+    }
+
+    .dropdown-menu a, .dropdown-menu button {
+        display: block;
+        padding: 10px 20px;
+        color: #ddd;
+        text-decoration: none;
+        transition: all 0.3s;
+        background: none;
+        border: none;
+        width: 100%;
+        text-align: left;
+        cursor: pointer;
+    }
+
+    .dropdown-menu a:hover, .dropdown-menu button:hover {
+        background: #333;
+        color: var(--primary);
+    }
+
+    .user-dropdown:hover .dropdown-menu {
+        display: block;
+    }
     header {
         background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
         padding: 20px 50px;
@@ -36,11 +133,10 @@
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     }
 
-    .logo {
-        color: var(--primary);
-        font-size: 2rem;
-        font-weight: bold;
-        text-decoration: none;
+    .logo img {
+    width: 120px;
+    height: auto;
+    max-height: 50px;
     }
 
     nav ul {
@@ -66,9 +162,8 @@
     .hero {
         height: 70vh;
         background:
-            linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-            /* Overlay transparan */
-            url('img/background.png') no-repeat center center/cover;
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('img/background.png') no-repeat center center/cover;
         display: flex;
         align-items: center;
         padding: 0 50px;
@@ -85,12 +180,10 @@
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, 0.5);
-        /* Ubah angka terakhir untuk mengatur redupnya */
     }
 
     .hero-content {
         position: relative;
-        /* Pastikan konten di atas overlay */
         z-index: 1;
         max-width: 600px;
     }
@@ -122,7 +215,6 @@
 
     .btn:active {
         background-color: var(--dark);
-        /* Warna saat tombol ditekan */
     }
 
     .time-slot.active {
@@ -133,6 +225,8 @@
     .now-showing,
     .coming-soon {
         padding: 50px;
+         padding-top: 100px;
+        margin-top: -80px;
     }
 
     .section-title {
@@ -145,6 +239,9 @@
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 30px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth; 
     }
 
     .movie-card {
@@ -153,6 +250,7 @@
         overflow: hidden;
         transition: transform 0.3s;
         cursor: pointer;
+        flex: 0 0 auto;
     }
 
     .movie-card:hover {
